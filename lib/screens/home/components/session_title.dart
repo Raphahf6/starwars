@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+
+import '../../../controler/constants.dart';
+
+class SessionTitle extends StatelessWidget {
+  const SessionTitle({
+    Key? key,
+    required this.title,
+    required this.press,
+  }) : super(key: key);
+  final String title;
+  final Function()? press;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * .1 / 2,
+      margin: const EdgeInsets.only(right: 20, left: 20),
+      child: Row(
+        children: [
+          MainTitle(text: title),
+          const Spacer(),
+        ],
+      ),
+    );
+  }
+}
+
+class MainTitle extends StatelessWidget {
+  const MainTitle({
+    Key? key,
+    required this.text,
+  }) : super(key: key);
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 31,
+      child: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: kdefaultPadding / 4),
+            child: Text(
+              text,
+              // ignore: prefer_const_constructors
+              style: TextStyle(
+                  fontSize: 23, fontWeight: FontWeight.w500, color: ktextColor),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
