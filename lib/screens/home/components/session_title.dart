@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../controler/constants.dart';
 
-class SessionTitle extends StatelessWidget {
+class SessionTitle extends StatefulWidget {
   const SessionTitle({
     Key? key,
     required this.title,
@@ -12,14 +12,18 @@ class SessionTitle extends StatelessWidget {
   final Function()? press;
 
   @override
+  State<SessionTitle> createState() => _SessionTitleState();
+}
+
+class _SessionTitleState extends State<SessionTitle> {
+  @override
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * .1 / 2,
       margin: const EdgeInsets.only(right: 20, left: 20),
       child: Row(
         children: [
-          MainTitle(text: title),
-          const Spacer(),
+          MainTitle(text: widget.title),
         ],
       ),
     );
@@ -36,20 +40,13 @@ class MainTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 31,
-      child: Stack(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: kdefaultPadding / 4),
-            child: Text(
-              text,
-              // ignore: prefer_const_constructors
-              style: TextStyle(
-                  fontSize: 23, fontWeight: FontWeight.w500, color: ktextColor),
-            ),
-          ),
-        ],
+    return Padding(
+      padding: const EdgeInsets.only(left: kdefaultPadding / 4),
+      child: Text(
+        text,
+        // ignore: prefer_const_constructors
+        style: TextStyle(
+            fontSize: 23, fontWeight: FontWeight.w500, color: ktextColor),
       ),
     );
   }

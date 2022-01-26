@@ -8,44 +8,21 @@ class RowHorizontalCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var count = 5;
-
-    return SingleChildScrollView(
+    return ListView.builder(
       scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          MyCards(
-            image: 'Titulo',
-            title: 'Em breve...',
-            press: () {},
-            description: 'Manutenção :D',
-          ),
-          MyCards(
-            image: 'Titulo',
-            title: 'Em breve...',
-            press: () {},
-            description: 'Manutenção :D',
-          ),
-          MyCards(
-            image: 'Titulo',
-            title: 'Em breve...',
-            press: () {},
-            description: 'Manutenção :D',
-          ),
-          MyCards(
-            image: 'Titulo',
-            title: 'Em breve...',
-            press: () {},
-            description: 'Manutenção :D',
-          ),
-          MyCards(
-            image: 'Titulo',
-            title: 'Em breve...',
-            press: () {},
-            description: 'Manutenção :D',
-          )
-        ],
-      ),
+      itemCount: 5,
+      itemBuilder: (context, index) {
+        return Row(
+          children: [
+            MyCards(
+              image: 'Titulo',
+              title: 'Em breve...',
+              press: () {},
+              description: 'Manutenção :D',
+            ),
+          ],
+        );
+      },
     );
   }
 }

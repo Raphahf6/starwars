@@ -16,7 +16,7 @@ class MyHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: kdefaultPadding * 2.5),
-      height: size.height * .4,
+      height: size.height * .4 / 1.1,
       child: Stack(
         children: [
           Container(
