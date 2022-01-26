@@ -61,7 +61,7 @@ class _BodyState extends State<Body> {
 
       Map<String, dynamic> retorno = json.decode(response.body);
 
-      if (retorno["name"] != null && _peopleName.length < count) {
+      if (retorno["name"] != null && _peopleName.length < count - 1) {
         setState(() {
           _peopleName.add(retorno["name"]);
         });
@@ -131,7 +131,8 @@ class _BodyState extends State<Body> {
                                   title: Container(
                                     width: size.width * .1 / 2,
                                     height: size.height * .1 / 2,
-                                    decoration: BoxDecoration(),
+                                    decoration: BoxDecoration(
+                                        border: Border.all(width: 1)),
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Row(
