@@ -30,12 +30,13 @@ class MyCards extends StatelessWidget {
         child: Column(
           children: [
             Container(
+              width: size.width * .3,
+              height: size.height * .1,
               padding: const EdgeInsets.all(kdefaultPadding / 2),
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10),
-                  ),
+                      topRight: Radius.circular(30),
+                      bottomLeft: Radius.circular(30)),
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
@@ -51,38 +52,6 @@ class MyCards extends StatelessWidget {
                 )),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.all(kdefaultPadding / 2),
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10)),
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      offset: const Offset(0, 10),
-                      blurRadius: 50,
-                      color: kprimaryColor.withOpacity(0.23),
-                    )
-                  ]),
-              child: Row(
-                children: [
-                  RichText(
-                      text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: "$title\n".toUpperCase(),
-                        style: Theme.of(context).textTheme.button,
-                      ),
-                      TextSpan(
-                          text: description,
-                          style:
-                              TextStyle(color: kprimaryColor.withOpacity(0.5)))
-                    ],
-                  )),
-                ],
-              ),
-            )
           ],
         ),
       ),
