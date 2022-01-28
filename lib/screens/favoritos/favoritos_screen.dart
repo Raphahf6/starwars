@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:starwars_app/screens/favoritos/film_favorite_list.dart';
-import 'package:starwars_app/screens/favoritos/people_favorite_list.dart';
+import 'package:starwars_app/screens/favoritos/components/film_favorite_list.dart';
+import 'package:starwars_app/screens/favoritos/components/people_favorite_list.dart';
 import 'package:starwars_app/screens/home/components/session_title.dart';
 
 class FavoritosScreen extends StatefulWidget {

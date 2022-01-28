@@ -7,14 +7,14 @@ import 'package:starwars_app/controler/constants.dart';
 import 'package:starwars_app/controler/db_funcs.dart';
 import 'package:starwars_app/screens/home/components/image_card.dart';
 
-class PeopleList extends StatefulWidget {
-  const PeopleList({Key? key}) : super(key: key);
+class PeopleImageCards extends StatefulWidget {
+  const PeopleImageCards({Key? key}) : super(key: key);
 
   @override
-  _PeopleListState createState() => _PeopleListState();
+  _PeopleImageCardsState createState() => _PeopleImageCardsState();
 }
 
-class _PeopleListState extends State<PeopleList> {
+class _PeopleImageCardsState extends State<PeopleImageCards> {
   String urlBase = 'https://swapi.dev/api';
 
   Future<List<PeopleListApi>> _recuperarPeople() async {

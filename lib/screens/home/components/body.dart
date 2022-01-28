@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:starwars_app/controler/constants.dart';
 import 'package:starwars_app/screens/favoritos/favoritos_screen.dart';
 import 'package:starwars_app/screens/home/components/films_image_cards.dart';
-import 'package:starwars_app/screens/home/components/people_list.dart';
+import 'package:starwars_app/screens/home/components/people_image_cards.dart';
 import 'package:starwars_app/screens/home/components/session_title.dart';
 import 'package:starwars_app/screens/webview/webview_screen.dart';
 import 'my_header.dart';
@@ -83,7 +83,7 @@ class _BodyState extends State<Body> {
         ),
         const FilmImageCard(),
         SessionTitle(title: 'Alguns Personagens', press: () {}),
-        const PeopleList()
+        const PeopleImageCards()
       ],
     );
   }
