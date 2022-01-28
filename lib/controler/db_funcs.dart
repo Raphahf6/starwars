@@ -83,12 +83,22 @@ recuperarPersonagensFavoritos() async {
   }
 }
 
-excluirUsuario(String titulo) async {
+excluirFilmeFavorito(String titulo) async {
   Database bd = await recuperarBancoDeDados();
 
   bd.delete(
     "filmes",
     where: "titulo = ?",
     whereArgs: [titulo],
+  );
+}
+
+excluirPeopleFavorito(String name) async {
+  Database bd = await recuperarBancoDeDadosPeople();
+
+  bd.delete(
+    "personagens",
+    where: "name = ?",
+    whereArgs: [name],
   );
 }

@@ -21,7 +21,7 @@ class ImageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onDoubleTap: onTap,
       child: Card(
         elevation: 15,
         color: cardPrimaryColor,

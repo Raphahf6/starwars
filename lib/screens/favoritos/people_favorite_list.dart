@@ -49,7 +49,12 @@ class _PeopleFavoriteListState extends State<PeopleFavoriteList> {
                     return ImageCard(
                         title: favoritePeople[index]["name"],
                         imageUrl: favoritePeople[index]["img"],
-                        onTap: () {});
+                        onTap: () {
+                          setState(() {
+                            excluirPeopleFavorito(
+                                favoritePeople[index]["name"]);
+                          });
+                        });
                   },
                 );
               }

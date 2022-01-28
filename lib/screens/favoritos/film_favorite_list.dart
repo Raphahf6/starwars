@@ -49,7 +49,12 @@ class _FilmFavoriteListState extends State<FilmFavoriteList> {
                     return ImageCard(
                         title: favoriteFilms[index]["titulo"],
                         imageUrl: favoriteFilms[index]["img"],
-                        onTap: () {});
+                        onTap: () {
+                          setState(() {
+                            excluirFilmeFavorito(
+                                favoriteFilms[index]["titulo"]);
+                          });
+                        });
                   },
                 );
               }

@@ -79,6 +79,7 @@ class _PeopleListState extends State<PeopleList> {
                         onTap: () {
                           salvarPersonagem(
                               index, peopleName[index], peopleImg[index]);
+                          //excluirUsuario(filme.filmTitle);
                         });
                   },
                 );
