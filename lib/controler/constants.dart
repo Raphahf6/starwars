@@ -4,6 +4,9 @@ const ktextColor = Color(0xFF342E37);
 const kbackgroundColor = Color(0xffFAFFFD);
 const kprimaryColor = Color(0xff141414);
 const double kdefaultPadding = 20.0;
+const cardPrimaryColor = Color(0xff1E2025);
+const CARD_DEFAULT_PADDING = 16.0;
+const CARD_DEFAULT_PADDING_MEDIUM = 12.0;
 
 List filmPosters = [
   'https://imgc.allpostersimages.com/img/posters/star-wars-episode-iv-new-hope-classic-movie-poster_u-L-F5L5V30.jpg?artHeight=550&artPerspective=n&artWidth=550',

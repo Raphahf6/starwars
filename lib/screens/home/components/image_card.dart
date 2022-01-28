@@ -66,7 +66,7 @@ class ImageCard extends StatelessWidget {
               child: Text(
                 title,
                 style: TextStyle(
-                  fontSize: 13 / MediaQuery.of(context).textScaleFactor,
+                  fontSize: 20 / MediaQuery.of(context).textScaleFactor,
                   color: Colors.white,
                 ),
               ),

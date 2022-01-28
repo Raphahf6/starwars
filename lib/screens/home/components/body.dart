@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:starwars_app/controler/constants.dart';
 import 'package:starwars_app/screens/home/components/films_image_cards.dart';
 import 'package:starwars_app/screens/home/components/people_list.dart';
 import 'package:starwars_app/screens/home/components/session_title.dart';
@@ -17,13 +18,38 @@ class _BodyState extends State<Body> {
     Size size = MediaQuery.of(context).size;
     // habilita scroll em devices pequenos ;
     return ListView(
-      padding: EdgeInsets.all(5),
+      padding: const EdgeInsets.all(0),
       children: [
         MyHeader(size: size),
-        SessionTitle(title: "Filmes", press: () {}),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              SessionTitle(title: "Filmes", press: () {}),
+              const Spacer(),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text(
+                  'Favoritos',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.5,
+                  ),
+                ),
+                style: TextButton.styleFrom(
+                    minimumSize: const Size(90, 45),
+                    backgroundColor: kprimaryColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20))),
+              )
+            ],
+          ),
+        ),
         const FilmImageCard(),
         SessionTitle(title: 'Alguns Personagens', press: () {}),
-        PeopleList()
+        const PeopleList()
       ],
     );
   }

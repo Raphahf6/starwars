@@ -21,10 +21,13 @@ class _SessionTitleState extends State<SessionTitle> {
     return Container(
       height: MediaQuery.of(context).size.height * .1 / 2,
       margin: const EdgeInsets.only(right: 20, left: 20),
-      child: Row(
-        children: [
-          MainTitle(text: widget.title),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            MainTitle(text: widget.title),
+          ],
+        ),
       ),
     );
   }
@@ -46,7 +49,10 @@ class MainTitle extends StatelessWidget {
         text,
         // ignore: prefer_const_constructors
         style: TextStyle(
-            fontSize: 23, fontWeight: FontWeight.w500, color: ktextColor),
+            letterSpacing: 2,
+            fontSize: 23,
+            fontWeight: FontWeight.w500,
+            color: Color(0xffFCAB10)),
       ),
     );
   }

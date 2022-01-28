@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:starwars_app/controler/api_star_wars.dart';
 import 'package:starwars_app/controler/constants.dart';
 import 'package:starwars_app/screens/home/components/image_card.dart';
 
@@ -44,7 +43,7 @@ class _PeopleListState extends State<PeopleList> {
       child: FutureBuilder<dynamic>(
         future: _recuperarPeople(),
         builder: (context, snapshot) {
-          Widget body = Text('');
+          Widget body = const Text('');
 
           switch (snapshot.connectionState) {
             case ConnectionState.active:
@@ -68,7 +67,6 @@ class _PeopleListState extends State<PeopleList> {
               break;
             case ConnectionState.done:
               if (snapshot.hasError) {
-                print('erro');
               } else {
                 body = ListView.builder(
                   scrollDirection: Axis.horizontal,

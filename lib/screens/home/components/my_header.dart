@@ -16,14 +16,14 @@ class MyHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: kdefaultPadding * 2.5),
-      height: size.height * .4 / 1.1,
+      height: size.height * .4 / 1,
       child: Stack(
         children: [
           Container(
             // ignore: prefer_const_constructors
             padding: EdgeInsets.only(
-                left: kdefaultPadding + 30,
-                right: kdefaultPadding + 30,
+                left: kdefaultPadding + 40,
+                right: kdefaultPadding + 40,
                 bottom: -5 + kdefaultPadding),
             height: size.height * 0.4 - 20,
             decoration: const BoxDecoration(
@@ -34,7 +34,7 @@ class MyHeader extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  "Olá #SW-Fan!",
+                  "Olá #SW-Fan",
                   style: Theme.of(context).textTheme.headline5?.copyWith(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),
@@ -67,7 +67,7 @@ class MyHeader extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                        offset: const Offset(0, 0.1),
+                        offset: const Offset(0, 3),
                         blurRadius: 10,
                         color: kprimaryColor.withOpacity(0.90)),
                   ],
@@ -79,7 +79,7 @@ class MyHeader extends StatelessWidget {
                       decoration: InputDecoration(
                         hintText: "Pesquisar",
                         hintStyle:
-                            TextStyle(color: kprimaryColor.withOpacity(0.5)),
+                            TextStyle(color: kprimaryColor.withOpacity(0.7)),
                         enabledBorder: InputBorder.none,
                         focusedBorder: InputBorder.none,
                       ),
