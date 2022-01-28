@@ -7,6 +7,7 @@
 - Aplicativo lista filmes e personagens star wars utilizando a Api https://swapi.dev/documentation
 - Adiciona ao favoritos com doubleClick no card
 - Remove dos favoritos com doubleClick no card favorito
+- Banco de Dados SQLITE integrado.
 
 
 ### 📋 Pré-requisitos
