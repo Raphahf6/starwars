@@ -15,7 +15,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Body(),
-      bottomNavigationBar: MyBottonNavBar(),
     );
   }
 }
