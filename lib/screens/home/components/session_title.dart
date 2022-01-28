@@ -52,7 +52,7 @@ class MainTitle extends StatelessWidget {
             letterSpacing: 2,
             fontSize: 23,
             fontWeight: FontWeight.w500,
-            color: Color(0xffFCAB10)),
+            color: const Color(0xffFCAB10)),
       ),
     );
   }

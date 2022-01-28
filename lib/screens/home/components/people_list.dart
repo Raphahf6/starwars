@@ -80,9 +80,13 @@ class _PeopleListState extends State<PeopleList> {
                               context: context,
                               builder: (ctx) {
                                 return AlertDialog(
-                                  title: Text(people.peopleName),
+                                  title: Text(people.peopleName,
+                                      style:
+                                          const TextStyle(color: Colors.white)),
                                   content: Text(
-                                      'Deseja adicionar ${people.peopleName} como favorito ?'),
+                                      'Deseja adicionar ${people.peopleName} como favorito ?',
+                                      style:
+                                          const TextStyle(color: Colors.white)),
                                   backgroundColor: kprimaryColor,
                                   elevation: 10,
                                   actions: [

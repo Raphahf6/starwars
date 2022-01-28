@@ -37,9 +37,7 @@ class ImageCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(
-                  imageUrl == null
-                      ? "https://flymobi.com.br/images/placeholder-img.jpg"
-                      : imageUrl,
+                  imageUrl,
                   fit: BoxFit.fitHeight,
                 ),
               ),

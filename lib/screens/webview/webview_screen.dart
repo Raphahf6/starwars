@@ -2,37 +2,26 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:starwars_app/controler/constants.dart';
 
 class MyInAppBrowser extends InAppBrowser {
   @override
-  Future onBrowserCreated() async {
-    print("Browser Created!");
-  }
+  Future onBrowserCreated() async {}
 
   @override
-  Future onLoadStart(url) async {
-    print("Started $url");
-  }
+  Future onLoadStart(url) async {}
 
   @override
-  Future onLoadStop(url) async {
-    print("Stopped $url");
-  }
+  Future onLoadStop(url) async {}
 
   @override
-  void onLoadError(url, code, message) {
-    print("Can't load $url.. Error: $message");
-  }
+  void onLoadError(url, code, message) {}
 
   @override
-  void onProgressChanged(progress) {
-    print("Progress: $progress");
-  }
+  void onProgressChanged(progress) {}
 
   @override
-  void onExit() {
-    print("Browser closed!");
-  }
+  void onExit() {}
 }
 
 Future main() async {
@@ -50,10 +39,12 @@ Future main() async {
 }
 
 class MyWebView extends StatefulWidget {
-  final MyInAppBrowser browser = new MyInAppBrowser();
+  final MyInAppBrowser browser = MyInAppBrowser();
+
+  MyWebView({Key? key}) : super(key: key);
 
   @override
-  _MyWebViewState createState() => new _MyWebViewState();
+  _MyWebViewState createState() => _MyWebViewState();
 }
 
 class _MyWebViewState extends State<MyWebView> {
@@ -65,18 +56,44 @@ class _MyWebViewState extends State<MyWebView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text('InAppBrowser Example'),
+        backgroundColor: Colors.black,
+        title: const Text('Star Wars Site Oficial'),
       ),
       body: Center(
-        child: ElevatedButton(
-            onPressed: () {
-              widget.browser.openUrlRequest(
-                  urlRequest: URLRequest(url: Uri.parse("https://flutter.dev")),
-                  options: options);
-            },
-            child: Text("Open InAppBrowser")),
+        child: NewWidget(widget: widget, options: options),
       ),
     );
+  }
+}
+
+class NewWidget extends StatelessWidget {
+  const NewWidget({
+    Key? key,
+    required this.widget,
+    required this.options,
+  }) : super(key: key);
+
+  final MyWebView widget;
+  final InAppBrowserClassOptions options;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        style: TextButton.styleFrom(
+            minimumSize: const Size(90, 45),
+            backgroundColor: kprimaryColor,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20))),
+        onPressed: () {
+          widget.browser.openUrlRequest(
+              urlRequest:
+                  URLRequest(url: Uri.parse("https://www.starwars.com/")),
+              options: options);
+        },
+        child: const Text(
+          "Abrir site oficial",
+        ));
   }
 }

@@ -77,15 +77,19 @@ class _FilmImageCardState extends State<FilmImageCard> {
                             context: context,
                             builder: (ctx) {
                               return AlertDialog(
-                                title: Text('${filme.filmTitle}'),
+                                title: Text(filme.filmTitle,
+                                    style:
+                                        const TextStyle(color: Colors.white)),
                                 content: Text(
-                                    'Deseja adicionar ${filme.filmTitle} como favorito ?'),
+                                    'Deseja adicionar ${filme.filmTitle} como favorito ?',
+                                    style:
+                                        const TextStyle(color: Colors.white)),
                                 backgroundColor: kprimaryColor,
                                 elevation: 10,
                                 actions: [
                                   TextButton(
                                       onPressed: () => {Navigator.pop(context)},
-                                      child: Text('Não')),
+                                      child: const Text('Não')),
                                   TextButton(
                                       onPressed: () => {
                                             salvarFilme(
@@ -95,7 +99,7 @@ class _FilmImageCardState extends State<FilmImageCard> {
                                             ),
                                             Navigator.pop(context)
                                           },
-                                      child: Text('Sim'))
+                                      child: const Text('Sim'))
                                 ],
                               );
                             });

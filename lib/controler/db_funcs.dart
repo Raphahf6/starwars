@@ -1,6 +1,5 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:starwars_app/controler/api_star_wars.dart';
 
 List favoriteFilms = [];
 List favoritePeople = [];
@@ -39,7 +38,7 @@ salvarFilme(int index, titulo, img) async {
     "titulo": "$titulo",
     "img": "$img"
   };
-  int id = await bd.insert('filmes', dadosFilmeFavorito);
+  return await bd.insert('filmes', dadosFilmeFavorito);
 }
 
 salvarPersonagem(int index, name, img) async {
@@ -50,7 +49,7 @@ salvarPersonagem(int index, name, img) async {
     "name": "$name",
     "img": "$img"
   };
-  int id = await bd.insert('personagens', dadosPeopleFavorito);
+  return await bd.insert('personagens', dadosPeopleFavorito);
 }
 
 recuperarFilmesFavoritos() async {

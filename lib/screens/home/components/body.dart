@@ -4,6 +4,7 @@ import 'package:starwars_app/screens/favoritos/favoritos_screen.dart';
 import 'package:starwars_app/screens/home/components/films_image_cards.dart';
 import 'package:starwars_app/screens/home/components/people_list.dart';
 import 'package:starwars_app/screens/home/components/session_title.dart';
+import 'package:starwars_app/screens/webview/webview_screen.dart';
 import 'my_header.dart';
 
 class Body extends StatefulWidget {
@@ -31,7 +32,13 @@ class _BodyState extends State<Body> {
               Padding(
                 padding: const EdgeInsets.only(right: 25),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MyWebView(),
+                        ));
+                  },
                   child: const Text(
                     'Site Oficial',
                     style: TextStyle(
