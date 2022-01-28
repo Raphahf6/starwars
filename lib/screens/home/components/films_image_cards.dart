@@ -73,7 +73,7 @@ class _FilmImageCardState extends State<FilmImageCard> {
                       title: filme.filmTitle,
                       imageUrl: filmPosters[index],
                       onTap: () {
-                        salvar(index, filme.filmTitle, filmPosters[index]);
+                        //salvar(index, filme.filmTitle, filmPosters[index]);
                         //excluirUsuario(filme.filmTitle);
                       });
                 },

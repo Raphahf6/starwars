@@ -3,6 +3,7 @@ import 'package:path/path.dart';
 import 'package:starwars_app/controler/api_star_wars.dart';
 
 List favoriteFilms = [];
+List favoritePeople = [];
 
 recuperarBancoDeDados() async {
   final caminhoBancoDeDados = await getDatabasesPath();
@@ -17,7 +18,20 @@ recuperarBancoDeDados() async {
   return bd;
 }
 
-salvar(int index, titulo, img) async {
+recuperarBancoDeDadosPeople() async {
+  final caminhoBancoDeDados = await getDatabasesPath();
+  final localBancoDeDados = join(caminhoBancoDeDados, 'starWarsPeople.db');
+
+  var bd = await openDatabase(localBancoDeDados, version: 1,
+      onCreate: (db, dbVersaoRecente) {
+    String sql = 'CREATE TABLE personagens (id INTEGER , name TEXT, img TEXT)';
+    db.execute(sql);
+  });
+
+  return bd;
+}
+
+salvarFilme(int index, titulo, img) async {
   Database bd = await recuperarBancoDeDados();
 
   Map<String, dynamic> dadosFilmeFavorito = {
@@ -28,14 +42,23 @@ salvar(int index, titulo, img) async {
   int id = await bd.insert('filmes', dadosFilmeFavorito);
 }
 
+salvarPersonagem(int index, name, img) async {
+  Database bd = await recuperarBancoDeDadosPeople();
+
+  Map<String, dynamic> dadosFilmeFavorito = {
+    "id": "$index",
+    "name": "$name",
+    "img": "$img"
+  };
+  int id = await bd.insert('personagens', dadosFilmeFavorito);
+}
+
 listarFilmesFavoritos() async {
   Database bd = await recuperarBancoDeDados();
   String sql = 'SELECT * FROM filmes';
   List filmesFavoritos = await bd.rawQuery(sql);
 
-  for (var filmes in filmesFavoritos) {
-    return print(filmes["titulo"]);
-  }
+  for (var filmes in filmesFavoritos) {}
 }
 
 recuperarFilmesFavoritos() async {
@@ -47,8 +70,17 @@ recuperarFilmesFavoritos() async {
   for (var filmes in filmesFavoritos) {
     favoriteFilms.add(filmes);
   }
+}
 
-  print(favoriteFilms[0]["titulo"] + favoriteFilms[0]["img"]);
+recuperarPersonagensFavoritos() async {
+  favoritePeople.clear();
+  Database bd = await recuperarBancoDeDadosPeople();
+  String sql = 'SELECT * FROM personagens';
+  List personagensFavoritos = await bd.rawQuery(sql);
+
+  for (var people in personagensFavoritos) {
+    favoritePeople.add(people);
+  }
 }
 
 excluirUsuario(String titulo) async {

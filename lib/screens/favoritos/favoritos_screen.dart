@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:starwars_app/screens/favoritos/film_favorite_list.dart';
+import 'package:starwars_app/screens/favoritos/people_favorite_list.dart';
 import 'package:starwars_app/screens/home/components/films_image_cards.dart';
 import 'package:starwars_app/screens/home/components/people_list.dart';
 import 'package:starwars_app/screens/home/components/session_title.dart';
@@ -26,8 +27,9 @@ class _FavoritosScreenState extends State<FavoritosScreen> {
         child: Column(
           children: [
             SessionTitle(title: 'Filmes Favoritos', press: () {}),
-            FilmFavoriteList(),
+            const FilmFavoriteList(),
             SessionTitle(title: 'Personagens Favoritos', press: () {}),
+            const PeopleFavoriteList()
           ],
         ),
       ),
