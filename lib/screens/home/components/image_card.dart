@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:starwars_app/values/colors.dart';
-import 'package:starwars_app/values/values.dart';
+import 'package:starwars_app/controler/constants.dart';
 
 class ImageCard extends StatelessWidget {
   String title;
@@ -11,12 +10,13 @@ class ImageCard extends StatelessWidget {
   double width;
 
   ImageCard({
+    Key? key,
     required this.title,
     required this.imageUrl,
     required this.onTap,
     this.height = double.infinity,
     this.width = 180,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +24,14 @@ class ImageCard extends StatelessWidget {
       onTap: () {},
       child: Card(
         elevation: 15,
-        color: primaryColor,
+        color: cardPrimaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
         child: Stack(
           alignment: Alignment.bottomLeft,
           children: [
-            Container(
+            SizedBox(
               width: width,
               height: height,
               child: ClipRRect(
@@ -49,7 +49,7 @@ class ImageCard extends StatelessWidget {
               width: width,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
@@ -62,7 +62,7 @@ class ImageCard extends StatelessWidget {
             ),
             Container(
               width: width,
-              padding: EdgeInsets.all(DEFAULT_PADDING),
+              padding: const EdgeInsets.all(CARD_DEFAULT_PADDING),
               child: Text(
                 title,
                 style: TextStyle(
