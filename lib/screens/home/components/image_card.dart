@@ -4,7 +4,7 @@ import 'package:starwars_app/controler/constants.dart';
 class ImageCard extends StatelessWidget {
   String title;
   String imageUrl;
-  Function onTap;
+  Function()? onTap;
 
   double height;
   double width;
@@ -21,7 +21,7 @@ class ImageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Card(
         elevation: 15,
         color: cardPrimaryColor,

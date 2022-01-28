@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:starwars_app/controler/constants.dart';
+import 'package:starwars_app/screens/favoritos/favoritos_screen.dart';
 import 'package:starwars_app/screens/home/components/films_image_cards.dart';
 import 'package:starwars_app/screens/home/components/people_list.dart';
 import 'package:starwars_app/screens/home/components/session_title.dart';
@@ -27,8 +28,34 @@ class _BodyState extends State<Body> {
             children: [
               SessionTitle(title: "Filmes", press: () {}),
               const Spacer(),
+              Padding(
+                padding: const EdgeInsets.only(right: 25),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Site Oficial',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.5,
+                    ),
+                  ),
+                  style: TextButton.styleFrom(
+                      minimumSize: const Size(90, 45),
+                      backgroundColor: kprimaryColor,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20))),
+                ),
+              ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FavoritosScreen(),
+                      ));
+                },
                 child: const Text(
                   'Favoritos',
                   style: TextStyle(

@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:starwars_app/controler/api_star_wars.dart';
 import 'package:starwars_app/controler/constants.dart';
+import 'package:starwars_app/controler/db_funcs.dart';
 import 'package:starwars_app/screens/home/components/image_card.dart';
 
 class FilmImageCard extends StatefulWidget {
@@ -71,7 +72,10 @@ class _FilmImageCardState extends State<FilmImageCard> {
                   return ImageCard(
                       title: filme.filmTitle,
                       imageUrl: filmPosters[index],
-                      onTap: () {});
+                      onTap: () {
+                        salvar(index, filme.filmTitle, filmPosters[index]);
+                        //excluirUsuario(filme.filmTitle);
+                      });
                 },
               );
           }
