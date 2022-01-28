@@ -45,20 +45,12 @@ salvarFilme(int index, titulo, img) async {
 salvarPersonagem(int index, name, img) async {
   Database bd = await recuperarBancoDeDadosPeople();
 
-  Map<String, dynamic> dadosFilmeFavorito = {
+  Map<String, dynamic> dadosPeopleFavorito = {
     "id": "$index",
     "name": "$name",
     "img": "$img"
   };
-  int id = await bd.insert('personagens', dadosFilmeFavorito);
-}
-
-listarFilmesFavoritos() async {
-  Database bd = await recuperarBancoDeDados();
-  String sql = 'SELECT * FROM filmes';
-  List filmesFavoritos = await bd.rawQuery(sql);
-
-  for (var filmes in filmesFavoritos) {}
+  int id = await bd.insert('personagens', dadosPeopleFavorito);
 }
 
 recuperarFilmesFavoritos() async {

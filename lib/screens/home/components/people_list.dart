@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:starwars_app/controler/api_star_wars.dart';
 import 'dart:convert';
 
 import 'package:starwars_app/controler/constants.dart';
@@ -15,26 +16,21 @@ class PeopleList extends StatefulWidget {
 
 class _PeopleListState extends State<PeopleList> {
   String urlBase = 'https://swapi.dev/api';
-  List peopleName = [];
 
-  _recuperarPeople() async {
-    Uri url = Uri.parse('https://swapi.dev/api/people/');
-    http.Response response;
-    response = await http.get(url);
-    Map<String, dynamic> retorno = json.decode(response.body);
-    int count = retorno["count"];
+  Future<List<PeopleListApi>> _recuperarPeople() async {
+    Uri url = Uri.parse(urlBase + '/people');
 
-    for (var i = 1; i <= 08; i++) {
-      Uri url = Uri.parse('https://swapi.dev/api/people/${i.toString()}/');
-      http.Response response;
-      response = await http.get(url);
+    http.Response response = await http.get(url);
+    var dadosJson = json.decode(response.body);
 
-      Map<String, dynamic> retorno = json.decode(response.body);
+    List<PeopleListApi> peopleName = [];
 
-      if (retorno["name"] != null && peopleName.length < count) {
-        peopleName.add(retorno["name"]);
-      }
+    for (var people in dadosJson["results"]) {
+      PeopleListApi p = PeopleListApi(people["name"]);
+      peopleName.add(p);
     }
+
+    return peopleName;
   }
 
   @override
@@ -73,13 +69,41 @@ class _PeopleListState extends State<PeopleList> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 06,
                   itemBuilder: (context, index) {
+                    List<PeopleListApi> list = snapshot.data!;
+                    PeopleListApi people = list[index];
+
                     return ImageCard(
-                        title: peopleName[index],
+                        title: people.peopleName,
                         imageUrl: peopleImg[index],
                         onTap: () {
-                          salvarPersonagem(
-                              index, peopleName[index], peopleImg[index]);
-                          //excluirUsuario(filme.filmTitle);
+                          showDialog(
+                              context: context,
+                              builder: (ctx) {
+                                return AlertDialog(
+                                  title: Text(people.peopleName),
+                                  content: Text(
+                                      'Deseja adicionar ${people.peopleName} como favorito ?'),
+                                  backgroundColor: kprimaryColor,
+                                  elevation: 10,
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () =>
+                                            {Navigator.pop(context)},
+                                        child: const Text('Não')),
+                                    TextButton(
+                                        onPressed: () => {
+                                              salvarPersonagem(
+                                                index,
+                                                people.peopleName,
+                                                peopleImg[index],
+                                              ),
+                                              Navigator.pop(context)
+                                            },
+                                        child: const Text('Sim'))
+                                  ],
+                                );
+                              });
+                          //
                         });
                   },
                 );

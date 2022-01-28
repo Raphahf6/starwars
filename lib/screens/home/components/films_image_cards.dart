@@ -73,7 +73,33 @@ class _FilmImageCardState extends State<FilmImageCard> {
                       title: filme.filmTitle,
                       imageUrl: filmPosters[index],
                       onTap: () {
-                        salvarFilme(index, filme.filmTitle, filmPosters[index]);
+                        showDialog(
+                            context: context,
+                            builder: (ctx) {
+                              return AlertDialog(
+                                title: Text('${filme.filmTitle}'),
+                                content: Text(
+                                    'Deseja adicionar ${filme.filmTitle} como favorito ?'),
+                                backgroundColor: kprimaryColor,
+                                elevation: 10,
+                                actions: [
+                                  TextButton(
+                                      onPressed: () => {Navigator.pop(context)},
+                                      child: Text('Não')),
+                                  TextButton(
+                                      onPressed: () => {
+                                            salvarFilme(
+                                              index,
+                                              filme.filmTitle,
+                                              filmPosters[index],
+                                            ),
+                                            Navigator.pop(context)
+                                          },
+                                      child: Text('Sim'))
+                                ],
+                              );
+                            });
+                        //
                       });
                 },
               );
