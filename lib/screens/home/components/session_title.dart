@@ -50,7 +50,7 @@ class MainTitle extends StatelessWidget {
         // ignore: prefer_const_constructors
         style: TextStyle(
             letterSpacing: 2,
-            fontSize: 10,
+            fontSize: MediaQuery.of(context).size.width > 320 ? 15 : 10,
             fontWeight: FontWeight.w500,
             color: const Color(0xffFCAB10)),
       ),

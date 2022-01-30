@@ -39,11 +39,11 @@ class _BodyState extends State<Body> {
                           builder: (context) => MyWebView(),
                         ));
                   },
-                  child: const Text(
+                  child: Text(
                     'Site Oficial',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 10,
+                      fontSize: size.width > 320 ? 15 : 10,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.5,
                     ),
@@ -62,11 +62,11 @@ class _BodyState extends State<Body> {
                         builder: (context) => const FavoritosScreen(),
                       ));
                 },
-                child: const Text(
+                child: Text(
                   'Favoritos',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 10,
+                    fontSize: size.width > 320 ? 15 : 10,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.5,
                   ),

@@ -25,9 +25,9 @@ class MyHeader extends StatelessWidget {
 
             // ignore: prefer_const_constructors
             padding: EdgeInsets.only(
-                left: size.width > 400 ? kdefaultPadding + 40 : kdefaultPadding,
+                left: size.width > 320 ? kdefaultPadding + 30 : kdefaultPadding,
                 right:
-                    size.width > 400 ? kdefaultPadding + 40 : kdefaultPadding,
+                    size.width > 320 ? kdefaultPadding + 30 : kdefaultPadding,
                 bottom: -5 + kdefaultPadding),
 
             decoration: const BoxDecoration(
