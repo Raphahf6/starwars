@@ -8,7 +8,7 @@
 - Adiciona ao favoritos com doubleClick no card
 - Remove dos favoritos com doubleClick no card favorito
 - Banco de Dados SQLITE integrado.
-- Link para download do APK, devido tamanho ter passado de 50mb não foi possivel subir no diretorio do GitHub:      https://drive.google.com/file/d/1z_XLdN0dRAjimRwcC6JJg448wN3if_aB/view?usp=sharing
+
 
 
 ### 📋 Pré-requisitos
