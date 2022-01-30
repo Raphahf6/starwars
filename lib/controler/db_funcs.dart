@@ -5,12 +5,13 @@ List favoriteFilms = [];
 List favoritePeople = [];
 
 recuperarBancoDeDados() async {
-  final _caminhoBancoDeDados = await getDatabasesPath();
-  final _localBancoDeDados = join(_caminhoBancoDeDados, 'starWars.db');
+  final caminhoBancoDeDados = await getDatabasesPath();
+  final localBancoDeDados = join(caminhoBancoDeDados, 'starWar5.db');
 
-  var bd = await openDatabase(_localBancoDeDados, version: 1,
+  var bd = await openDatabase(localBancoDeDados, version: 1,
       onCreate: (db, dbVersaoRecente) {
-    String sql = 'CREATE TABLE filmes (id INTEGER , titulo TEXT, img TEXT)';
+    String sql =
+        'CREATE TABLE filmes ( ID INTEGER PRIMARY KEY AUTOINCREMENT , titulo TEXT, img TEXT)';
     db.execute(sql);
   });
 
@@ -19,11 +20,12 @@ recuperarBancoDeDados() async {
 
 recuperarBancoDeDadosPeople() async {
   final caminhoBancoDeDados = await getDatabasesPath();
-  final localBancoDeDados = join(caminhoBancoDeDados, 'starWarsPeople.db');
+  final localBancoDeDados = join(caminhoBancoDeDados, 'starWarsPeople5.db');
 
   var bd = await openDatabase(localBancoDeDados, version: 1,
       onCreate: (db, dbVersaoRecente) {
-    String sql = 'CREATE TABLE personagens (id INTEGER , name TEXT, img TEXT)';
+    String sql =
+        'CREATE TABLE personagens (ID INTEGER PRIMARY KEY AUTOINCREMENT , name TEXT, img TEXT)';
     db.execute(sql);
   });
 
@@ -71,9 +73,9 @@ recuperarPersonagensFavoritos() async {
 
   for (var people in personagensFavoritos) {
     if (favoritePeople.contains(people)) {
-    } else {
-      favoritePeople.add(people);
+      favoritePeople.removeWhere((element) => "name" == people["name"]);
     }
+    favoritePeople.add(people);
   }
 }
 

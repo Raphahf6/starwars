@@ -16,16 +16,16 @@ class FilmImageCard extends StatefulWidget {
 class _FilmImageCardState extends State<FilmImageCard> {
   String urlBase = 'https://swapi.dev/api';
 
-  Future<List<ApiStarWars>> _recuperarFilmes() async {
+  Future<List<FavoriteFilm>> _recuperarFilmes() async {
     Uri url = Uri.parse(urlBase + '/films');
 
     http.Response response = await http.get(url);
     var dadosJson = json.decode(response.body);
 
-    List<ApiStarWars> filmTitle = [];
+    List<FavoriteFilm> filmTitle = [];
 
     for (var filme in dadosJson["results"]) {
-      ApiStarWars f = ApiStarWars(filme["title"]);
+      FavoriteFilm f = FavoriteFilm(filme["title"]);
       filmTitle.add(f);
     }
 
@@ -36,7 +36,7 @@ class _FilmImageCardState extends State<FilmImageCard> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 250,
-      child: FutureBuilder<List<ApiStarWars>>(
+      child: FutureBuilder<List<FavoriteFilm>>(
         future: _recuperarFilmes(),
         builder: (context, snapshot) {
           Widget body = const Text('');
@@ -66,18 +66,18 @@ class _FilmImageCardState extends State<FilmImageCard> {
                 scrollDirection: Axis.horizontal,
                 itemCount: snapshot.data?.length,
                 itemBuilder: (context, index) {
-                  List<ApiStarWars> lista = snapshot.data!;
-                  ApiStarWars filme = lista[index];
+                  List<FavoriteFilm> lista = snapshot.data!;
+                  FavoriteFilm filme = lista[index];
 
                   return ImageCard(
-                      title: filme.filmTitle,
+                      title: filme.filmTitle!,
                       imageUrl: filmPosters[index],
                       onTap: () {
                         showDialog(
                             context: context,
                             builder: (ctx) {
                               return AlertDialog(
-                                title: Text(filme.filmTitle,
+                                title: Text(filme.filmTitle!,
                                     style:
                                         const TextStyle(color: Colors.white)),
                                 content: Text(

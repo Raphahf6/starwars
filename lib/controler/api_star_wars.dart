@@ -25,10 +25,23 @@ class PeopleListApi {
 class FavoriteFilm {
   int? id;
   String? filmTitle;
-  String? img;
 
   FavoriteFilm(
     this.filmTitle,
-    this.img,
   );
+
+  FavoriteFilm.fromMap(Map map) {
+    filmTitle = map["titulo"];
+  }
+
+  Map? toMap() {
+    Map<String, dynamic> map = {
+      "titulo": this.filmTitle,
+    };
+    if (this.id != null) {
+      map["id"] = this.id;
+    }
+
+    return map;
+  }
 }
