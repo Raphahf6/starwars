@@ -5,10 +5,10 @@ List favoriteFilms = [];
 List favoritePeople = [];
 
 recuperarBancoDeDados() async {
-  final caminhoBancoDeDados = await getDatabasesPath();
-  final localBancoDeDados = join(caminhoBancoDeDados, 'starWars.db');
+  final _caminhoBancoDeDados = await getDatabasesPath();
+  final _localBancoDeDados = join(_caminhoBancoDeDados, 'starWars.db');
 
-  var bd = await openDatabase(localBancoDeDados, version: 1,
+  var bd = await openDatabase(_localBancoDeDados, version: 1,
       onCreate: (db, dbVersaoRecente) {
     String sql = 'CREATE TABLE filmes (id INTEGER , titulo TEXT, img TEXT)';
     db.execute(sql);

@@ -31,18 +31,4 @@ class FavoriteFilm {
     this.filmTitle,
     this.img,
   );
-
-  FavoriteFilm.fromMap(Map map) {
-    filmTitle = map["titulo"];
-    img = map["img"];
-  }
-
-  Map? toMap() {
-    Map<String, dynamic> map = {"titulo": this.filmTitle, "img": this.img};
-    if (this.id != null) {
-      map["id"] = this.id;
-    }
-
-    return map;
-  }
 }

@@ -20,12 +20,16 @@ class MyHeader extends StatelessWidget {
       child: Stack(
         children: [
           Container(
+            width: size.width,
+            height: size.height * 0.4 - 20,
+
             // ignore: prefer_const_constructors
             padding: EdgeInsets.only(
-                left: kdefaultPadding,
-                right: kdefaultPadding,
+                left: size.width > 400 ? kdefaultPadding + 40 : kdefaultPadding,
+                right:
+                    size.width > 400 ? kdefaultPadding + 40 : kdefaultPadding,
                 bottom: -5 + kdefaultPadding),
-            height: size.height * 0.4 - 20,
+
             decoration: const BoxDecoration(
                 color: kprimaryColor,
                 borderRadius: BorderRadius.only(
