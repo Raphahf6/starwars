@@ -70,7 +70,10 @@ recuperarPersonagensFavoritos() async {
   List personagensFavoritos = await bd.rawQuery(sql);
 
   for (var people in personagensFavoritos) {
-    favoritePeople.add(people);
+    if (favoritePeople.contains(people)) {
+    } else {
+      favoritePeople.add(people);
+    }
   }
 }
 
