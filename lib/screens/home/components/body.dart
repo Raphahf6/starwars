@@ -43,13 +43,12 @@ class _BodyState extends State<Body> {
                     'Site Oficial',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 16,
+                      fontSize: 10,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.5,
                     ),
                   ),
                   style: TextButton.styleFrom(
-                      minimumSize: const Size(90, 45),
                       backgroundColor: kprimaryColor,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20))),
@@ -67,13 +66,12 @@ class _BodyState extends State<Body> {
                   'Favoritos',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 16,
+                    fontSize: 10,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.5,
                   ),
                 ),
                 style: TextButton.styleFrom(
-                    minimumSize: const Size(90, 45),
                     backgroundColor: kprimaryColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20))),

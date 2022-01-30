@@ -12,6 +12,7 @@ class _CustumizeAvatarState extends State<CustumizeAvatar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(),
       body: ListView(
         children: [

@@ -19,17 +19,19 @@ class _FavoritosScreenState extends State<FavoritosScreen> {
         backgroundColor: Colors.black,
         title: const Text('Favoritos'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            SessionTitle(title: 'Filmes Favoritos', press: () {}),
-            const FilmFavoriteList(),
-            SessionTitle(title: 'Personagens Favoritos', press: () {}),
-            const PeopleFavoriteList()
-          ],
+      body: ListView(children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              SessionTitle(title: 'Filmes Favoritos', press: () {}),
+              const FilmFavoriteList(),
+              SessionTitle(title: 'Personagens Favoritos', press: () {}),
+              const PeopleFavoriteList()
+            ],
+          ),
         ),
-      ),
+      ]),
     );
   }
 }

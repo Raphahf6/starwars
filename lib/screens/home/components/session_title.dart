@@ -50,7 +50,7 @@ class MainTitle extends StatelessWidget {
         // ignore: prefer_const_constructors
         style: TextStyle(
             letterSpacing: 2,
-            fontSize: 23,
+            fontSize: 10,
             fontWeight: FontWeight.w500,
             color: const Color(0xffFCAB10)),
       ),
