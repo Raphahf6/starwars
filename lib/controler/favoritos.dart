@@ -5,8 +5,8 @@ class Favoritos {
   List _favoriteFilms = [];
   List _favoritePeople = [];
 
-  List? get favoriteFilms => _favoriteFilms;
-  List? get favoritePeople => _favoritePeople;
+  List get favoriteFilms => _favoriteFilms;
+  List get favoritePeople => _favoritePeople;
 
   recuperarBancoDeDados() async {
     final caminhoBancoDeDados = await getDatabasesPath();
@@ -59,29 +59,29 @@ class Favoritos {
   }
 
   recuperarFilmesFavoritos() async {
-    favoriteFilms!.clear();
+    favoriteFilms.clear();
 
     Database bd = await recuperarBancoDeDados();
     String sql = 'SELECT * FROM filmes';
     List filmesFavoritos = await bd.rawQuery(sql);
 
     for (var filmes in filmesFavoritos) {
-      favoriteFilms!.add(filmes);
+      favoriteFilms.add(filmes);
       print(filmes);
     }
   }
 
   recuperarPersonagensFavoritos() async {
-    favoritePeople!.clear();
+    favoritePeople.clear();
     Database bd = await recuperarBancoDeDadosPeople();
     String sql = 'SELECT * FROM personagens';
     List personagensFavoritos = await bd.rawQuery(sql);
 
     for (var people in personagensFavoritos) {
-      if (favoritePeople!.contains(people)) {
-        favoritePeople!.removeWhere((element) => "name" == people["name"]);
+      if (favoritePeople.contains(people)) {
+        favoritePeople.removeWhere((element) => "name" == people["name"]);
       }
-      favoritePeople!.add(people);
+      favoritePeople.add(people);
     }
   }
 

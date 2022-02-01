@@ -45,15 +45,15 @@ class _FilmFavoriteListState extends State<FilmFavoriteList> {
               } else {
                 body = ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: favoritos.favoriteFilms!.length,
+                  itemCount: favoritos.favoriteFilms.length,
                   itemBuilder: (context, index) {
                     return ImageCard(
-                        title: favoritos.favoriteFilms![index]["titulo"],
-                        imageUrl: favoritos.favoriteFilms![index]["img"],
+                        title: favoritos.favoriteFilms[index]["titulo"],
+                        imageUrl: favoritos.favoriteFilms[index]["img"],
                         onTap: () {
                           setState(() {
                             favoritos.excluirFilmeFavorito(
-                                favoritos.favoriteFilms![index]["titulo"]);
+                                favoritos.favoriteFilms[index]["titulo"]);
                           });
                         });
                   },

@@ -46,15 +46,15 @@ class _PeopleFavoriteListState extends State<PeopleFavoriteList> {
               } else {
                 body = ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: favoritos.favoritePeople!.length,
+                  itemCount: favoritos.favoritePeople.length,
                   itemBuilder: (context, index) {
                     return ImageCard(
-                        title: favoritos.favoritePeople![index]["name"],
-                        imageUrl: favoritos.favoritePeople![index]["img"],
+                        title: favoritos.favoritePeople[index]["name"],
+                        imageUrl: favoritos.favoritePeople[index]["img"],
                         onTap: () {
                           setState(() {
                             favoritos.excluirPeopleFavorito(
-                                favoritos.favoritePeople![index]["name"]);
+                                favoritos.favoritePeople[index]["name"]);
                           });
                         });
                   },
