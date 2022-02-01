@@ -59,9 +59,8 @@ class Favoritos {
   }
 
   recuperarFilmesFavoritos() async {
-    print('func chamada');
     favoriteFilms!.clear();
-    print('list clear');
+
     Database bd = await recuperarBancoDeDados();
     String sql = 'SELECT * FROM filmes';
     List filmesFavoritos = await bd.rawQuery(sql);
