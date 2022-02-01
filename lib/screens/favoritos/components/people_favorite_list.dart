@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:starwars_app/controler/db_funcs.dart';
+import 'package:starwars_app/controler/favoritos.dart';
 import 'package:starwars_app/screens/home/components/image_card.dart';
 
 class PeopleFavoriteList extends StatefulWidget {

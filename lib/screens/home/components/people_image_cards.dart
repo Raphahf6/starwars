@@ -4,7 +4,7 @@ import 'package:starwars_app/controler/api_star_wars.dart';
 import 'dart:convert';
 
 import 'package:starwars_app/controler/constants.dart';
-import 'package:starwars_app/controler/db_funcs.dart';
+import 'package:starwars_app/controler/favoritos.dart';
 import 'package:starwars_app/screens/home/components/image_card.dart';
 
 class PeopleImageCards extends StatefulWidget {
