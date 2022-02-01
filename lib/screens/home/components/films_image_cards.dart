@@ -15,6 +15,7 @@ class FilmImageCard extends StatefulWidget {
 
 class _FilmImageCardState extends State<FilmImageCard> {
   String urlBase = 'https://swapi.dev/api';
+  Favoritos favoritos = Favoritos();
 
   Future<List<FavoriteFilm>> _recuperarFilmes() async {
     Uri url = Uri.parse(urlBase + '/films');
@@ -92,7 +93,7 @@ class _FilmImageCardState extends State<FilmImageCard> {
                                       child: const Text('Não')),
                                   TextButton(
                                       onPressed: () => {
-                                            salvarFilme(
+                                            favoritos.salvarFilme(
                                               index,
                                               filme.filmTitle,
                                               filmPosters[index],

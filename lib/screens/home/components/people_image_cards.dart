@@ -16,6 +16,7 @@ class PeopleImageCards extends StatefulWidget {
 
 class _PeopleImageCardsState extends State<PeopleImageCards> {
   String urlBase = 'https://swapi.dev/api';
+  Favoritos favoritos = Favoritos();
 
   Future<List<PeopleListApi>> _recuperarPeople() async {
     Uri url = Uri.parse(urlBase + '/people');
@@ -96,7 +97,7 @@ class _PeopleImageCardsState extends State<PeopleImageCards> {
                                         child: const Text('Não')),
                                     TextButton(
                                         onPressed: () => {
-                                              salvarPersonagem(
+                                              favoritos.salvarPersonagem(
                                                 index,
                                                 people.peopleName,
                                                 peopleImg[index],

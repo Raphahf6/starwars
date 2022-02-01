@@ -10,12 +10,13 @@ class FilmFavoriteList extends StatefulWidget {
 }
 
 class _FilmFavoriteListState extends State<FilmFavoriteList> {
+  Favoritos favoritos = Favoritos();
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 250,
       child: FutureBuilder<dynamic>(
-        future: recuperarFilmesFavoritos(),
+        future: favoritos.recuperarFilmesFavoritos(),
         builder: (context, snapshot) {
           Widget body = const Text('');
 
@@ -44,15 +45,15 @@ class _FilmFavoriteListState extends State<FilmFavoriteList> {
               } else {
                 body = ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: favoriteFilms.length,
+                  itemCount: favoritos.favoriteFilms!.length,
                   itemBuilder: (context, index) {
                     return ImageCard(
-                        title: favoriteFilms[index]["titulo"],
-                        imageUrl: favoriteFilms[index]["img"],
+                        title: favoritos.favoriteFilms![index]["titulo"],
+                        imageUrl: favoritos.favoriteFilms![index]["img"],
                         onTap: () {
                           setState(() {
-                            excluirFilmeFavorito(
-                                favoriteFilms[index]["titulo"]);
+                            favoritos.excluirFilmeFavorito(
+                                favoritos.favoriteFilms![index]["titulo"]);
                           });
                         });
                   },

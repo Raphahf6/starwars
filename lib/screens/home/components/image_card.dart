@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:starwars_app/controler/constants.dart';
 
-class ImageCard extends StatelessWidget {
+class ImageCard extends StatefulWidget {
   String title;
   String imageUrl;
   Function()? onTap;
@@ -19,9 +19,14 @@ class ImageCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<ImageCard> createState() => _ImageCardState();
+}
+
+class _ImageCardState extends State<ImageCard> {
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onDoubleTap: onTap,
+      onDoubleTap: widget.onTap,
       child: Card(
         elevation: 15,
         color: cardPrimaryColor,
@@ -32,19 +37,19 @@ class ImageCard extends StatelessWidget {
           alignment: Alignment.bottomLeft,
           children: [
             SizedBox(
-              width: width,
-              height: height,
+              width: widget.width,
+              height: widget.height,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(
-                  imageUrl,
+                  widget.imageUrl,
                   fit: BoxFit.fitHeight,
                 ),
               ),
             ),
             Container(
-              height: height,
-              width: width,
+              height: widget.height,
+              width: widget.width,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 gradient: const LinearGradient(
@@ -59,12 +64,12 @@ class ImageCard extends StatelessWidget {
               ),
             ),
             Container(
-              width: width,
+              width: widget.width,
               padding: const EdgeInsets.all(CARD_DEFAULT_PADDING),
               child: Text(
-                title,
+                widget.title,
                 style: TextStyle(
-                  fontSize: 20 / MediaQuery.of(context).textScaleFactor,
+                  fontSize: 13 / MediaQuery.of(context).textScaleFactor,
                   color: Colors.white,
                 ),
               ),

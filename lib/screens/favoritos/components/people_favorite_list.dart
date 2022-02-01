@@ -10,12 +10,14 @@ class PeopleFavoriteList extends StatefulWidget {
 }
 
 class _PeopleFavoriteListState extends State<PeopleFavoriteList> {
+  Favoritos favoritos = Favoritos();
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 250,
       child: FutureBuilder<dynamic>(
-        future: recuperarPersonagensFavoritos(),
+        future: favoritos.recuperarPersonagensFavoritos(),
         builder: (context, snapshot) {
           Widget body = const Text('');
 
@@ -44,15 +46,15 @@ class _PeopleFavoriteListState extends State<PeopleFavoriteList> {
               } else {
                 body = ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: favoritePeople.length,
+                  itemCount: favoritos.favoritePeople!.length,
                   itemBuilder: (context, index) {
                     return ImageCard(
-                        title: favoritePeople[index]["name"],
-                        imageUrl: favoritePeople[index]["img"],
+                        title: favoritos.favoritePeople![index]["name"],
+                        imageUrl: favoritos.favoritePeople![index]["img"],
                         onTap: () {
                           setState(() {
-                            excluirPeopleFavorito(
-                                favoritePeople[index]["name"]);
+                            favoritos.excluirPeopleFavorito(
+                                favoritos.favoritePeople![index]["name"]);
                           });
                         });
                   },
